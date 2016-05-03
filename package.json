@@ -1,0 +1,11 @@
+{
+  "name": "xqrank",
+  "version": "1.0.0",
+  "description": "xueqiu rank",
+  "main": "app.js",
+  "scripts": {
+    "test": "npm test"
+  },
+  "author": "qisc",
+  "license": "ISC"
+}
