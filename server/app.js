@@ -7,5 +7,5 @@ app.use('/', routes);//路由设置
 
 var server = app.listen(8888, function () {
   var port = server.address().port;
-  console.log('Example app listening at http://localhost:%s', host, port);
+  console.log('Example app listening at http://localhost:%s', port);
 });
