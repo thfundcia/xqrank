@@ -1,0 +1,17 @@
+{
+  "name": "xqrank",
+  "version": "1.0.0",
+  "description": "xueqiu rank",
+  "main": "app.js",
+  "scripts": {
+    "test": "npm test"
+  },
+  "author": "qisc",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.13.4",
+    "bluebird": "^3.3.4",
+    "mysql": "^2.10.2",
+    "sequelize": "^3.21.0"
+  }
+}
