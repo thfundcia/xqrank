@@ -1,0 +1,12 @@
+{
+  "groups":[["ZH833826",1],["ZH833776",2]],
+  "stats":["net_value"],
+  "baseRate":"0.0362",
+  "rate_history":"https://xueqiu.com/cubes/nav_daily/all.json?cube_symbol=",
+  "Max_dd":"https://xueqiu.com/cubes/analyst/histo/stat.json?type=max_draw&cube_symbol=",
+  "volatility":"https://xueqiu.com/cubes/analyst/histo/stat.json?type=volatility&cube_symbol=",
+  "combine_url":"https://xueqiu.com/P/",
+  "task":{
+    "getCombinData":{"hour":15,"minute":5}
+  }
+}
