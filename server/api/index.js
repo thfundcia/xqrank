@@ -1,10 +1,12 @@
 var express = require('express');
 var CombStock = require('../db/models').CombStock;
+var t = require('../help/time');
 var router = express.Router();
 
 /* 获取所有的定增新闻 */
 router.get('/comb', function(req, res, next) {
-    CombStock.findAll().then(function(news){
+    var today = new Date();
+    CombStock.findAll({where:{time:t.timeToString(today)}}).then(function(news){
       res.json(news);
     });
 });
