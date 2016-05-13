@@ -5,12 +5,12 @@ var CombStock= require('../db/models').CombStock;
 var async = require('async');
 var _ = require('lodash');
 var t = require('../help/time');
-var schedule = require('node-schedule');
 
 //爬去指定用户的组合收益情况
 function getCombinData(){
   var q = async.queue(function(task,next){
     fetch.combineInfo(task,function(data){
+      console.log(data)
       CombStock.findOrCreate({where:{comb_name:data.comb_name,time:data.time},defaults:data})
       .spread(function(result){
         result.userid = data.userid;
@@ -40,3 +40,4 @@ function getCombinData(){
 module.exports = {
   getCombinData:getCombinData
 }
+getCombinData()

@@ -23,7 +23,7 @@ function combineInfo(options,callback){
         $('.weight-list a').each(function(i,el){
           stock_id = stock_id + $(this).attr('href').substring(3)+',';
         });
-        var comb_data = {'income_t':getRate(0),'income_d':getRate(1),'income_m':getRate(2),'net_value':getRate(3),'name':name,'stock_id':stock_id};
+        var comb_data = {'income_t':getRate(0).toFixed(4),'income_d':getRate(1).toFixed(4),'income_m':getRate(2).toFixed(4),'net_value':getRate(3)*100,'name':name,'stock_id':stock_id};
         callback(null,comb_data);
       });
     },
