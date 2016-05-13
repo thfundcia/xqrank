@@ -6,5 +6,7 @@
   "Max_dd":"https://xueqiu.com/cubes/analyst/histo/stat.json?type=max_draw&cube_symbol=",
   "volatility":"https://xueqiu.com/cubes/analyst/histo/stat.json?type=volatility&cube_symbol=",
   "combine_url":"https://xueqiu.com/P/",
-  "stock_id":""
+  "task":{
+    "getCombinData":{"minute":5}
+  }
 }
