@@ -1,31 +1,8 @@
-$.get('http://localhost:8888/DAInews',function(data){
-  //创建数据集
-  data = [{
-    "name":'CIA-1602-huqy',
-    "netvalue":'1.1902',
-    "dayrate":'+4.23%',
-    "monthrate":"7.25%",
-    "totalrate":"19.02%",
-    "back":"6.74%",
-    "xiapu":"8.74%"
-  }, {"name":'CIA-1602-qisc',
-      "netvalue":'2.1902',
-      "dayrate":'+3.23%',
-      "monthrate":"4.25%",
-      "totalrate":"20.02%",
-      "back":"3.74%",
-      "xiapu":"2.74%"
-  }, {"name":'CIA-1602-huqy',
-      "netvalue":'1.1902',
-      "dayrate":'+4.23%',
-      "monthrate":"7.25%",
-      "totalrate":"19.02%",
-      "back":"6.74%",
-      "xiapu":"8.74%"
-}]
-  //添加HTML内容
+$.get('http://localhost:8888/comb',function(data){
+ //添加HTML内容
+      data.sort(getSortFun('desc',"netvalue"))//对数据进行排序
   addHtml(data,"data-list");
-
+ 
   //实现点击效果正序排列
   $("th").each(function(){
     var name = $(this).attr("id");//获取th的ID值
@@ -46,14 +23,25 @@ function sortData(data,name){
 //将排序后的数据添加到标签中
 function addHtml(data,id){
   data.forEach(function(d,i){
+  	
+  	if (parseFloat(d.income_d)>0){
+  		var td="<td style='color:red ;'>"+d.income_d+"</td>"
+  	}else{
+  		var td="<td style='color:green ;'>"+d.income_d+"</td>"
+  	};
+  	
+	if (parseFloat(d.income_m)>0){
+		var income_m="<td style='color:red ;'>"+d.income_m+"</td>"
+	}else{
+		var income_m="<td style='color:green ;'>"+d.income_m+"</td>"
+	};
+	
     var html = "<tr>\
-        <td>"+d.name+"</td>\
-        <td>"+d.prevalue+"</td>\
-        <td style='color:red ;'>"+d.dayrate+"</td>\
-        <td>"+d.monthrate+"</td>\
-        <td>"+d.totalrate+"</td>\
-        <td>"+d.back+"</td>\
-        <td>"+d.xiapu+"</td>\
+        <td>"+d.comb_name+"</td>\
+        <td>"+d.net_value+"</td>"
+        +td+income_m+"<td>"+d.income_t+"</td>\
+        <td>"+d.Max_dd+"</td>\
+        <td>"+d.index_sharp+"</td>\
         </tr>"
     $("#"+id).append(html)
   })
