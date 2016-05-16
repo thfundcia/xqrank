@@ -26,14 +26,19 @@ function addHtml(data,id){
   	
   	if (parseFloat(d.income_d)>0){
   		var td="<td style='color:red ;'>"+d.income_d+"</td>"
-  	}else{
+  	}else if(parseFloat(d.income_d)<0){
+ 
   		var td="<td style='color:green ;'>"+d.income_d+"</td>"
+  	}else{
+  		var td="<td style='color:black ;'>"+d.income_d+"</td>"
   	};
   	
 	if (parseFloat(d.income_m)>0){
 		var income_m="<td style='color:red ;'>"+d.income_m+"</td>"
-	}else{
+	}else if(parseFloat(d.income_m)<0){
 		var income_m="<td style='color:green ;'>"+d.income_m+"</td>"
+	}else{
+		var td="<td style='color:black ;'>"+d.income_m+"</td>"
 	};
 	
     var html = "<tr>\
