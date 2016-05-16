@@ -10,5 +10,6 @@
   "combine_url":"https://xueqiu.com/P/",
   "task":{
     "getCombinData":{"minute":5}
-  }
+  },
+  "port":1234
 }
