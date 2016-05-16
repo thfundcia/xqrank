@@ -1,9 +1,7 @@
-//监听利好消息，并推送到机器人上。
-//DAInews:定向增发消息
 var Sequelize = require('sequelize');
 //链接数据库
-var sequelize = new Sequelize('cia', 'cia', 'ciacia', {
-  host: 'qwercia01.mysql.rds.aliyuncs.com',
+var sequelize = new Sequelize('test_cia', 'cia', 'ciacia', {
+  host: '10.2.19.46',
   dialect: 'mysql',
   pool: {
     max: 5,
@@ -13,11 +11,17 @@ var sequelize = new Sequelize('cia', 'cia', 'ciacia', {
 });
 
 //建立News模型
-var DAInews = sequelize.define("t_private_placement", {
-  title:Sequelize.STRING,
-  url:Sequelize.STRING,
-  publish_time:Sequelize.DATE,
-  content:Sequelize.TEXT
+var CombStock = sequelize.define("comb_stock", {
+    userid:Sequelize.INTEGER,
+    comb_name:Sequelize.STRING,
+    net_value:Sequelize.DOUBLE(5,4),
+    income_d:Sequelize.STRING,
+    income_m:Sequelize.STRING,
+    income_t:Sequelize.STRING,
+    Max_dd:Sequelize.STRING,
+    index_sharp:Sequelize.STRING,
+    id_stock:Sequelize.STRING,
+    time:Sequelize.STRING
   },
   {
     freezeTableName: true,
@@ -27,5 +31,5 @@ var DAInews = sequelize.define("t_private_placement", {
 
 
 module.exports = {
-   DAInews:DAInews
+   CombStock:CombStock
 }

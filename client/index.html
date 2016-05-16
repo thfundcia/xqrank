@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8" />
+		<meta http-equiv="refresh" content="600">
+		<link href="css/css.css" rel="stylesheet" />
+		<title>CIA模拟组合业绩</title>
+	</head>
+
+	<body>
+		<div class="main">
+			<div class="header">
+				<div class="header-left border">
+					<p>
+						<img height=40 hspace=0 src="images/mnzh.png" width=235 align=left vertical-align:middle/>
+					</p>
+				</div>
+
+				<div class="header-right border">
+					<p align="right">
+						<img src="images/logo1.png" height="39" width="356" />
+					</p>
+				</div>
+			</div>
+
+			<div class="content border" style="background-image:url('images/back1.png');no-repeat;">
+
+				<div class="content-left">
+
+					<div class="content-left-header border">
+						<img src="images/gray1.png" height="42" width="431" style="padding-left:30px;padding-top:35px;" />
+					</div>
+
+					<div class="content-left-content">
+						<div class="content-left-content-left border">
+							<img src="images/ly.png" height="72" width="77" style="padding-left:30px;padding-top:0px;" />
+						</div>
+						<div class="content-left-content-right border">
+							<p class="p1" style="padding-left:12px;padding-top:5px;"><b>刘洋</b></p>
+							<img src="images/line.png" style="padding-left:12px;padding-top:0px;" />
+
+							<span style='background-color: #F4F4F4;display: block;margin-left: 12px;margin-right: 30px;margin-top: 10px;padding:10px 10px 10px 2px'>
+							<span class="p3"><b>组合净值</b></span>
+							<span class="p4">1.0984</span>
+							</span>
+
+							<span style='background-color: #F4F4F4;display: block;margin-left: 12px;margin-right: 30px;margin-top: 10px;padding:10px 10px 10px 2px'>
+							<span class="p3"><b>月涨幅</b></span>
+							<span class="p4">9.05%</span>
+							</span>
+
+							<span style='background-color: #F4F4F4;display: block;margin-left: 12px;margin-right: 30px;margin-top: 10px;padding:10px 10px 10px 2px'>
+							<span class="p3"><b>最赚钱股票</b></span>
+							<span class="p5">龙元投资</span>
+							</span>
+
+							<span style='background-color: #F4F4F4;display: block;margin-left: 12px;margin-right: 30px;margin-top: 10px;padding:10px 10px 10px 2px'>
+								<p class="p3" style="padding-left:18px;padding-top:0px;"><b>组合策略</b></p>
+							</span>
+
+							<span style='display: block;margin-top:12px;margin-right:28px ;'>
+								<p class="p2" style="padding-left:32px;padding-top:0px;line-height:18px">看好PPP主题（Public-Private-Partnership）既公私合作模式，和电动车、锂电、充电桩概念。<br>择时重于选股，躲过大跌重于大涨，后期采用低仓位保守策略。
+							    </p>
+							</span>
+
+							<span style='background-color: #F4F4F4;display: block;margin-left: 12px;margin-right: 30px;margin-top: 10px;padding:10px 10px 10px 2px'>
+								<p class="p3" style="padding-left:18px;padding-top:0px;"><b>最大回撤</b></p>
+							</span>
+							<span>
+								<img src="images/zdhc.png" width="345" style="padding-left:12px;padding-top:10px;"/>
+							</span>
+						</div>
+					</div>
+
+				</div>
+
+				<div class="content-right">
+
+					<div class="content-right-content border">
+
+						<table class="zebra">
+
+							<thead>
+								<tr>
+									<th>组合名称</th>
+									<th id ="net_value"><a href="#">净值</a></th>
+									<th id ="income_d"><a href="#">日收益</a></th>
+									<th id ="income_m"><a href="#">月收益</a></th>
+									<th id ="income_t"><a href="#">总收益</a></th>
+									<th id ="Max_dd"><a href="#">最大回撤</a></th>
+									<th id ="index_sharp"><a href="#">夏普指数</a></th>
+								</tr>
+							</thead>
+							<tbody id ="data-list">
+							</tbody>
+						</table>
+
+					</div>
+
+				</div>
+			</div>
+		</div>
+	</body>
+<script src="http://cdn.bootcss.com/jquery/3.0.0-beta1/jquery.min.js"></script>
+<script src="js/index.js"></script>
+</html>
