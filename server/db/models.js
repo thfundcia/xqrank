@@ -4,7 +4,7 @@ var sequelize = new Sequelize('test_cia', 'cia', 'ciacia', {
   host: '10.2.19.46',
   dialect: 'mysql',
   pool: {
-    max: 5,
+    max: 10,
     min: 0,
     idle: 10000
   }

@@ -1,8 +1,8 @@
-$.get('http://localhost:8888/comb',function(data){
+$.get('http://localhost:1234/comb',function(data){
  //添加HTML内容
       data.sort(getSortFun('desc',"netvalue"))//对数据进行排序
   addHtml(data,"data-list");
- 
+
   //实现点击效果正序排列
   $("th").each(function(){
     var name = $(this).attr("id");//获取th的ID值
@@ -23,16 +23,16 @@ function sortData(data,name){
 //将排序后的数据添加到标签中
 function addHtml(data,id){
   data.forEach(function(d,i){
-  	
+
   	if (parseFloat(d.income_d)>0){
   		var td="<td style='color:red ;'>"+d.income_d+"</td>"
   	}else if(parseFloat(d.income_d)<0){
- 
+
   		var td="<td style='color:green ;'>"+d.income_d+"</td>"
   	}else{
   		var td="<td style='color:black ;'>"+d.income_d+"</td>"
   	};
-  	
+
 	if (parseFloat(d.income_m)>0){
 		var income_m="<td style='color:red ;'>"+d.income_m+"</td>"
 	}else if(parseFloat(d.income_m)<0){
@@ -40,7 +40,7 @@ function addHtml(data,id){
 	}else{
 		var td="<td style='color:black ;'>"+d.income_m+"</td>"
 	};
-	
+
     var html = "<tr>\
         <td>"+d.comb_name+"</td>\
         <td>"+d.net_value+"</td>"
