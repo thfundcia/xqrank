@@ -19,7 +19,7 @@ fi
 exec $DOCKER_BIN run \
         "$INTERACT" \
         --name=$NAME\
-        -p 127.0.0.1:8888:8888\
+        -p 127.0.0.1:1234:1234\
         -v $DATA_VOLUME:$DATA_MOUNT_POINT \
         -v /etc/localtime:/etc/localtime:ro\
         "$IMAGE" \
