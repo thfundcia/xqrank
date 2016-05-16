@@ -10,7 +10,6 @@ var t = require('../help/time');
 function getCombinData(){
   var q = async.queue(function(task,next){
     fetch.combineInfo(task,function(data){
-      console.log(data)
       CombStock.findOrCreate({where:{comb_name:data.comb_name,time:data.time},defaults:data})
       .spread(function(result){
         result.userid = data.userid;
@@ -24,7 +23,7 @@ function getCombinData(){
         result.save();
       })
     })
-  },10);
+  },15);
 
   cookie.getCookieStr('http://xueqiu.com',function(cookie){
     for(var symbol in data.groups){
@@ -40,4 +39,3 @@ function getCombinData(){
 module.exports = {
   getCombinData:getCombinData
 }
-getCombinData()
