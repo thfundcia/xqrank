@@ -60,14 +60,18 @@ function combineInfo(options,callback){
       var kind = 'rate_history';
       requestData(options,kind,function(data){
         data = JSON.parse(data);
-        var rateList = _.map(data[0].list,'percent',square);
+        var valueList = _.map(data[0].list,'value');
+        var rateList = [];
+        valueList.forEach(function(value,i){
+          if(i>0){
+            rate = (value-valueList[i-1])/valueList[i-1]
+            rateList.push(rate);
+          }
+        });
         var mean = jStat(rateList).mean();
         var stdev = jStat(rateList).stdev();
-        var sharp = ((mean-c.baseRate)/stdev).toFixed(2);
+        var sharp = ((mean-c.baseRate/360)/stdev).toFixed(2);
         callback(null,sharp);
-        function square(n) {
-          return n * 0.01;
-        }
       });
     },
   },function(err,results){
