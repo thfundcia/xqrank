@@ -6,7 +6,7 @@ var router = express.Router();
 /* 获取所有的定增新闻 */
 router.get('/comb', function(req, res, next) {
     var today = new Date();
-    CombStock.findAll({where:{time:t.timeToString(today)}}).then(function(news){
+    CombStock.findAll({where:{time:t.timeToString(today)},order:'net_value DESC'}).then(function(news){
       res.json(news);
     });
 });
