@@ -1,6 +1,6 @@
-$.get('http://localhost:1234/comb',function(data){
+$.get('http://localhost:59760/comb',function(data){
  //添加HTML内容
-      data.sort(getSortFun('desc',"netvalue"))//对数据进行排序
+//data.sort(getSortFun('desc',"netvalue"));//对数据进行排序
   addHtml(data,"data-list");
 
   //实现点击效果正序排列
@@ -25,35 +25,62 @@ function addHtml(data,id){
   data.forEach(function(d,i){
 
   	if (parseFloat(d.income_d)>0){
-  		var td="<td style='color:red ;'>"+d.income_d+"</td>"
+  		var td="<td style='color:red ;'>"+toPercent(d.income_d)+"</td>"
   	}else if(parseFloat(d.income_d)<0){
 
-  		var td="<td style='color:green ;'>"+d.income_d+"</td>"
+  		var td="<td style='color:green ;'>"+toPercent(d.income_d)+"</td>"
   	}else{
-  		var td="<td style='color:black ;'>"+d.income_d+"</td>"
+  		var td="<td style='color:black ;'>"+toPercent(d.income_d)+"</td>"
   	};
 
 	if (parseFloat(d.income_m)>0){
-		var income_m="<td style='color:red ;'>"+d.income_m+"</td>"
+		var income_m="<td style='color:red ;'>"+toPercent(d.income_m)+"</td>"
 	}else if(parseFloat(d.income_m)<0){
-		var income_m="<td style='color:green ;'>"+d.income_m+"</td>"
+		var income_m="<td style='color:green ;'>"+toPercent(d.income_m)+"</td>"
 	}else{
-		var td="<td style='color:black ;'>"+d.income_m+"</td>"
+		var td="<td style='color:black ;'>"+toPercent(d.income_m)+"</td>"
 	};
+	
+		if (parseFloat(d.income_t)>0){
+		var tt="<td style='color:red ;'>"+toPercent(d.income_t)+"</td>"
+	}else if(parseFloat(d.income_t)<0){
+		var tt="<td style='color:green ;'>"+toPercent(d.income_t)+"</td>"
+	}else{
+		var td="<td style='color:black ;'>"+toPercent(d.income_t)+"</td>"
+	};
+	
 
-    var html = "<tr>\
-        <td>"+d.comb_name+"</td>\
-        <td>"+d.net_value+"</td>"
-        +td+income_m+"<td>"+d.income_t+"</td>\
-        <td>"+d.Max_dd+"</td>\
-        <td>"+d.index_sharp+"</td>\
-        </tr>"
+
+var html = "<tr><td style='width:1px;'>"
+        +"<img src='images/"+d.comb_name+".png' height='45px' align='center' /></td>"
+        +"<td style='text-align: left;' width='160px'>"+d.comb_name+"</td><td>"
+        +d.net_value+"</td>"
+        +td+income_m+tt+"<td>"
+        +toPercent(d.Max_dd)+"</td><td>"
+        +d.index_sharp+"</td>\</tr>"
     $("#"+id).append(html)
-  })
+})
 }
+
+//var html = "<tr>\
+//      <td>"+d.comb_name+"</td>\
+//      <td>"+d.net_value+"</td>"
+//      +td+income_m+"<td>"+toPercent(d.income_t)+"</td>\
+//      <td>"+toPercent(d.Max_dd)+"</td>\
+//      <td>"+d.index_sharp+"</td>\
+//      </tr>"
+//  $("#"+id).append(html)
+//})
+//}
+
+function toPercent(num){
+	var percent = (num*100).toString().substr(0,5)+'%'
+    	return percent;
+}
+
 //排序函数
 function getSortFun(order, sortBy) {
   var ordAlpah = (order == 'asc') ? '>' : '<';
-  var sortFun = new Function('a', 'b', 'return a.' + sortBy + ordAlpah + 'b.' + sortBy + '?1:-1');
+ var sortFun = new Function('a', 'b', 'if(a.'+sortBy+'<0 & b.'+sortBy+'<0){return a.' + sortBy + ordAlpah + 'b.' + sortBy + '?-1:1}else{return a.'+sortBy+ordAlpah+'b.'+sortBy+'?1:-1}');
   return sortFun;
 }

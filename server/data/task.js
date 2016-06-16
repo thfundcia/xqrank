@@ -23,7 +23,7 @@ function getCombinData(){
         result.save();
       })
     })
-  },15);
+  },16);
 
   cookie.getCookieStr('http://xueqiu.com',function(cookie){
     for(var symbol in data.groups){
