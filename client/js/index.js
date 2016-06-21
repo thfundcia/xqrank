@@ -1,4 +1,4 @@
-$.get('http://localhost:59760/comb',function(data){
+$.get('http://localhost:56604/comb',function(data){
  //添加HTML内容
 //data.sort(getSortFun('desc',"netvalue"));//对数据进行排序
   addHtml(data,"data-list");
@@ -9,6 +9,12 @@ $.get('http://localhost:59760/comb',function(data){
     sortData(data,name);//按照该列进行排序
   })
 });
+
+//	$("th").click(function(){ 
+//		$(this).text(th+abc);
+//		
+//});
+
 
 
 
