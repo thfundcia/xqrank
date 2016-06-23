@@ -181,11 +181,12 @@ table {
 
 .zebra td {
     border-left: 0px solid #97C7FF;
-    border-top: 1px solid #B5D4F8;
+    border-top: 0px solid #B5D4F8;
     border-right: 0px solid #97C7FF;
     border-bottom: 1px solid #B5D4F8;
     padding: 4px;
     text-align: left;    
+    color: #;
 }
 
 .zebra th, .zebra th:hover {
@@ -197,6 +198,10 @@ table {
 	font-weight:bold;
 	font-size: 12pt;
 }
+
+
+
+
 
 .zebra tbody tr:nth-child(even) {
     background: #FFFFFF !important;
