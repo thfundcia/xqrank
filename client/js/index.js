@@ -1,19 +1,35 @@
-$.get('http://localhost:56604/comb',function(data){
+$.get('http://localhost:53732/comb',function(data){
+ 
+// $("th").click(function(){
+//window.location.reload();
+//};
+// 
  //添加HTML内容
 //data.sort(getSortFun('desc',"netvalue"));//对数据进行排序
   addHtml(data,"data-list");
 
   //实现点击效果正序排列
   $("th").each(function(){
+  	
     var name = $(this).attr("id");//获取th的ID值
     sortData(data,name);//按照该列进行排序
   })
 });
 
-//	$("th").click(function(){ 
-//		$(this).text(th+abc);
-//		
-//});
+	$("th").click(function(){ 
+		$("th").each(function(i,e){
+		  var content =$(this).text();
+		  if (content.substr(content.length-1,1) === '↓'){
+			 	 $(this).html("<a href='#'>"+content.substr(0,content.length-1)+"</a>");
+		   }
+		  
+		})
+		var content = $(this).text();
+		if (content.substr(content.length-1,1)!='↓'){
+		
+			$(this).html("<a href='#'>"+content+"↓</a>");
+		}
+});
 
 
 
