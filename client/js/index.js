@@ -6,6 +6,7 @@ $.get('http://localhost:53732/comb',function(data){
 // 
  //添加HTML内容
 //data.sort(getSortFun('desc',"netvalue"));//对数据进行排序
+
   addHtml(data,"data-list");
 
   //实现点击效果正序排列
@@ -19,15 +20,15 @@ $.get('http://localhost:53732/comb',function(data){
 	$("th").click(function(){ 
 		$("th").each(function(i,e){
 		  var content =$(this).text();
-		  if (content.substr(content.length-1,1) === '↓'){
+		  if (content.substr(content.length-1,1) === '▼'){
 			 	 $(this).html("<a href='#'>"+content.substr(0,content.length-1)+"</a>");
 		   }
 		  
 		})
 		var content = $(this).text();
-		if (content.substr(content.length-1,1)!='↓'){
+		if (content.substr(content.length-1,1)!='▼'){
 		
-			$(this).html("<a href='#'>"+content+"↓</a>");
+			$(this).html("<a href='#'>"+content+"▼</a>");
 		}
 });
 
@@ -80,6 +81,7 @@ var html = "<tr><td style='width:1px;'>"
         +td+income_m+tt+"<td>"
         +toPercent(d.Max_dd)+"</td><td>"
         +d.index_sharp+"</td>\</tr>"
+
     $("#"+id).append(html)
 })
 }
@@ -96,8 +98,13 @@ var html = "<tr><td style='width:1px;'>"
 //}
 
 function toPercent(num){
-	var percent = (num*100).toString().substr(0,5)+'%'
-    	return percent;
+	if (num){
+		var percent = (num*100).toString().substr(0,5)+'%'
+      	return percent;
+	}else{
+		return '0%'
+
+	}
 }
 
 //排序函数
